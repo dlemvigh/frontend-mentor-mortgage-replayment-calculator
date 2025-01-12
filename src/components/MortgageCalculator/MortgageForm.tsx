@@ -1,8 +1,11 @@
-import "./MortgageForm.css"
 import iconCalculatorUrl from "../../assets/images/icon-calculator.svg";
 import { Button } from "../Form/Button";
 
+import "./MortgageForm.css"
+
+
 export function MortgageForm() {
+
     return (
         <form className="form">
             <div className="form-title-bar">

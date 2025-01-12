@@ -65,6 +65,10 @@
     gap: 12px;
 }
 
+.form-legend {
+    margin-bottom: 12px;
+}
+
 .form-radio-label {
     flex-direction: row;
 }

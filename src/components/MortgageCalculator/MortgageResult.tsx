@@ -11,6 +11,13 @@ type MortgageResultProps = {
     totalPayment: undefined;
 }
 
+const numberFormatter = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+})
+
 export function MortgageResult({ hasResult, monthlyPayment, totalPayment }: MortgageResultProps) {
 
     return (
@@ -34,9 +41,10 @@ export function MortgageResult({ hasResult, monthlyPayment, totalPayment }: Mort
 
                 <div className="result-details">
                     <span>Your monthly repayments</span>
-                    <span>£{monthlyPayment.toFixed(2)}</span>
+                    <strong className="monthly">{numberFormatter.format(monthlyPayment)}</strong>
+                    <hr className="result-separator" />
                     <span>Total you'll repay over the term</span>
-                    <span>£{totalPayment.toFixed(2)}</span>
+                    <strong className="total">{numberFormatter.format(totalPayment)}</strong>
                 </div>
             </>)}
         </div>

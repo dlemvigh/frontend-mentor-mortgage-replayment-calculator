@@ -28,5 +28,6 @@
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
         align-content: start;
+        overflow-y: auto;
     }
 }

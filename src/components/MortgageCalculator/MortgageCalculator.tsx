@@ -6,7 +6,7 @@ export function MortgageCalculator() {
     return (
         <div className="mortgage-calculator">
             <MortgageForm />
-            <MortgageResult />
+            <MortgageResult hasResult monthlyPayment={1797.74} totalPayment={539322.94}/>
         </div>
     )
 }

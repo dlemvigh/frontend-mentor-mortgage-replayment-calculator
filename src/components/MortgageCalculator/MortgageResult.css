@@ -1,0 +1,27 @@
+.result {
+    background-color: var(--color-slate-900);
+    color: var(--color-slate-300);
+
+    padding: 40px;
+}
+
+.result-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    gap: 16px;
+}
+
+.result-empty-img {
+    width: 192px;
+    height: 192px,
+}
+
+@media screen and (width >= 1440px) {
+    .result {
+        border-bottom-left-radius: 80px;
+    }    
+}

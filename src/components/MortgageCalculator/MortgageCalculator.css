@@ -8,6 +8,7 @@
 
     background-color: white;
     border-radius: 24px;
+    overflow: hidden;
 
     min-height: 100px;
 }

@@ -1,0 +1,25 @@
+.button {
+    background-color: var(--color-lime);
+    color: var(--color-slate-900);
+
+    border-style: none;
+    margin: 0;
+    padding: 16px 40px;
+    align-self: start;
+    border-radius: 1000px;
+
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 125%;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--color-lime-hover)
+}

@@ -2,13 +2,9 @@ import "./MortgageResult.css"
 import resultEmptyUrl from "../../assets/images/illustration-empty.svg"
 
 type MortgageResultProps = {
-    hasResult: true;
-    monthlyPayment: number;
-    totalPayment: number;
-} | {
-    hasResult: false;
-    monthlyPayment: undefined;
-    totalPayment: undefined;
+    hasResult: boolean;
+    monthlyPayment?: number;
+    totalPayment?: number;
 }
 
 const numberFormatter = new Intl.NumberFormat("en-GB", {

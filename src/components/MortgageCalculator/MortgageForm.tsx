@@ -1,16 +1,33 @@
+import { useCallback } from "react";
 import iconCalculatorUrl from "../../assets/images/icon-calculator.svg";
 import { Button } from "../Form/Button";
 
 import "./MortgageForm.css"
 
+interface MortgageFormProps {
+    onCalculateMortgage: (principal: number, interestRate: number, term: number, type: "repayment" | "interest-only") => void
+    onClear: () => void
+}
 
-export function MortgageForm() {
+export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps) {
+
+    const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+
+        const form = event.currentTarget
+        const principal = Number(form.amount.value)
+        const interestRate = Number(form.interest.value)
+        const term = Number(form.years.value)
+        const type = form.type.value as "repayment" | "interest-only"
+
+        onCalculateMortgage(principal, interestRate, term, type)
+    }, [onCalculateMortgage])
 
     return (
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
             <div className="form-title-bar">
                 <h1>Mortgage Calculator</h1>
-                <button type="reset" className="reset-btn">Clear All</button>
+                <button type="reset" className="reset-btn" onClick={onClear}>Clear All</button>
             </div>
 
             <div className="form-fields">

@@ -32,6 +32,9 @@
     display: flex;
     overflow: hidden;
 }
+.form-input-wrapper:has([aria-invalid=true]) {
+    border-color: var(--color-red);
+}
 .form-input-wrapper:focus-within {
     border-color: var(--color-lime);
 }
@@ -42,6 +45,10 @@
     padding: 12.5px 16px;
     font-size: 18px;
     font-weight: bold;
+}
+.form-input-wrapper:has([aria-invalid=true]) .form-input-addon {
+    background-color: var(--color-red);
+    color: var(--color-white)
 }
 .form-input-wrapper:focus-within .form-input-addon {
     background-color: var(--color-lime);
@@ -91,6 +98,9 @@
 }
 .form-radio {
     filter: hue-rotate(208deg) saturate(230%) brightness(150%);
+}
+.form-error {
+    color: var(--color-red);
 }
 .reset-btn {
     background-color: transparent;

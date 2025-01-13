@@ -38,7 +38,7 @@ body {
     align-items: center;
 
     margin: 0;
-    height: 100dvh;
+    min-height: 100dvh;
 }
 
 h1, h2 {

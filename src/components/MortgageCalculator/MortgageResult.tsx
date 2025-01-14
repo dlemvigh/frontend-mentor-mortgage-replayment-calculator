@@ -16,9 +16,11 @@ const numberFormatter = new Intl.NumberFormat("en-GB", {
 
 export function MortgageResult({ hasResult, monthlyPayment, totalPayment }: MortgageResultProps) {
 
+    const showResult = hasResult && monthlyPayment != undefined && totalPayment != undefined
+
     return (
         <div className="result">
-            {!hasResult && (
+            {!showResult && (
                 <div className="result-empty">
                     <img className="result-empty-img" src={resultEmptyUrl} alt="" />
                     <h2>Results shown here</h2>
@@ -28,7 +30,7 @@ export function MortgageResult({ hasResult, monthlyPayment, totalPayment }: Mort
                     </p>
                 </div>
             )}
-            {hasResult && (<>
+            {showResult &&  (<>
                 <h2>Your results</h2>
                 <p>
                     Your results are shown below based on the information you provided.

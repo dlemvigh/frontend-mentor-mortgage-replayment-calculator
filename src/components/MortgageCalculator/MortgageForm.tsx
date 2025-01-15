@@ -4,6 +4,7 @@ import { Button } from "../Form/Button";
 
 import "./MortgageForm.css"
 import { useForm } from "react-hook-form";
+import { InputWrapper, Input, InputAddon, InputError } from "../Form/Input";
 
 type FormValues = {
     amount: string
@@ -19,7 +20,7 @@ interface MortgageFormProps {
 
 export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps) {
 
-    const { register, handleSubmit, reset, formState: { errors }} = useForm<FormValues>({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValues>({
         mode: "onBlur"
     })
 
@@ -46,77 +47,77 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
 
             <div className="form-fields">
                 <label className="form-label form-field-mortgage-amount">
-                    <span>Mortgage Amount</span>
-                    <div className="form-input-wrapper">
-                        <div className="form-input-addon">£</div>
-                        <input 
+                    Mortgage Amount
+                    <InputWrapper>
+                        <InputAddon>£</InputAddon>
+                        <Input
                             {...register("amount", {
                                 required: "This field is required",
-                                min: { value: 0, message: "The amount must be greater than 0" } 
+                                min: { value: 0, message: "The amount must be greater than 0" }
                             })}
-                            className="form-input" 
+                            className="form-input"
                             type="number"
-                            aria-invalid={errors.amount ? "true" : "false"} 
+                            aria-invalid={errors.amount ? "true" : "false"}
                         />
-                    </div>
-                    {errors.amount && <div className="form-error">{errors.amount.message}</div>}
-                    </label>
+                    </InputWrapper>
+                    {errors.amount && <InputError>{errors.amount.message}</InputError>}
+                </label>
 
                 <label className="form-label">
                     Mortgate Term
-                    <div className="form-input-wrapper">
-                        <input 
+                    <InputWrapper>
+                        <Input
                             {...register("years", {
                                 required: "This field is required",
                                 min: { value: 1, message: "The term must be at least 1 year" },
                                 max: { value: 30, message: "The term must be at most 30 years" }
                             })}
-                            className="form-input" 
-                            type="number" 
-                            aria-invalid={errors.years ? "true" : "false"} 
+                            className="form-input"
+                            type="number"
+                            aria-invalid={errors.years ? "true" : "false"}
                         />
-                        <div className="form-input-addon">years</div>
-                    </div>
-                    {errors.years && <div className="form-error">{errors.years.message}</div>}
+                        <InputAddon>years</InputAddon>
+                    </InputWrapper>
+                    {errors.years && <InputError>{errors.years.message}</InputError>}
                 </label>
 
                 <label className="form-label">
                     Interest Rate
-                    <div className="form-input-wrapper">
-                        <input 
-                            {...register("interest",{
+                    <InputWrapper>
+                        <Input
+                            {...register("interest", {
                                 required: "This field is required",
                                 min: { value: 0, message: "The interest rate must be greater than 0" },
                             })}
-                            className="form-input" 
-                            type="number" 
-                            aria-invalid={errors.interest ? "true" : "false"} 
+                            className="form-input"
+                            type="number"
+                            aria-invalid={errors.interest ? "true" : "false"}
                             step="0.01"
                         />
-                        <div className="form-input-addon">%</div>
-                    </div>
-                    {errors.interest && <div className="form-error">{errors.interest.message}</div>}
+                        <InputAddon>%</InputAddon>
+                    </InputWrapper>
+                    {errors.interest && <InputError>{errors.interest.message}</InputError>}
                 </label>
 
                 <fieldset className="form-fieldset">
                     <legend className="form-legend">Mortgage Type</legend>
                     <label className="form-radio-label">
-                        <input 
+                        <input
                             {...register("type", {
                                 required: "This field is required"
                             })}
-                            className="form-radio" 
-                            type="radio" 
-                            value="repayment" 
+                            className="form-radio"
+                            type="radio"
+                            value="repayment"
                         />
                         Repayment
                     </label>
                     <label className="form-radio-label">
-                        <input 
+                        <input
                             {...register("type")}
-                            className="form-radio" 
-                            type="radio" 
-                            value="interest-only" 
+                            className="form-radio"
+                            type="radio"
+                            value="interest-only"
                         />
                         Interest Only
                     </label>

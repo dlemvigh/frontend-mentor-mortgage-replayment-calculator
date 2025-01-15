@@ -1,11 +1,32 @@
-import { HTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
+import "./input.css"
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
-    label: string;
+export function InputWrapper({ children }: { children: React.ReactNode }) { 
+    return (
+        <div className="form-input-wrapper">
+            {children}
+        </div>
+    )
 }
 
-export function Input({ ...props }: InputProps)  {
+export function Input({ ...props }: InputHTMLAttributes<HTMLInputElement>)  {
     return (
-        <input {...props} />
+        <input className="form-input" {...props} />
+    )
+}
+
+export function InputAddon({ children }: { children: React.ReactNode }) {
+    return (
+        <div className="form-input-addon">
+            {children}
+        </div>
+    )
+}
+
+export function InputError({ children }: { children: React.ReactNode }) {
+    return (
+        <div className="form-error">
+            {children}
+        </div>
     )
 }

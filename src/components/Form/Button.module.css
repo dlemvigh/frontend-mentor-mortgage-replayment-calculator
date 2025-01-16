@@ -23,3 +23,11 @@
 .button:hover {
     background-color: var(--color-lime-hover)
 }
+
+.button-reset {
+    background-color: transparent;
+    border-style: none;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--color-slate-700);
+}

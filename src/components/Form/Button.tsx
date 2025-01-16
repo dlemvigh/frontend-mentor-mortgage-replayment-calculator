@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 
-import "./Button.css"
+import classes from "./Button.module.css"
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     iconUrl?: string;
@@ -9,10 +9,17 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
 export function Button({ iconUrl, children, ...props }: ButtonProps) {
     return (
-        <button className="button" {...props}>
+        <button className={classes.button} {...props}>
             {iconUrl && <img src={iconUrl} />}
             {children}
         </button>
     )
+}
 
+export function ResetButton({ children, ...props }: HTMLAttributes<HTMLButtonElement>) {
+    return (
+        <button className={classes.buttonReset} {...props}>
+            {children}
+        </button>
+    )
 }

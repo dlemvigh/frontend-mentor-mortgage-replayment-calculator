@@ -1,5 +1,5 @@
-import "./MortgageResult.css"
 import resultEmptyUrl from "../../assets/images/illustration-empty.svg"
+import classes from "./MortgageResult.module.css"
 
 type MortgageResultProps = {
     hasResult: boolean;
@@ -19,10 +19,10 @@ export function MortgageResult({ hasResult, monthlyPayment, totalPayment }: Mort
     const showResult = hasResult && monthlyPayment != undefined && totalPayment != undefined
 
     return (
-        <div className="result">
+        <div className={classes.result}>
             {!showResult && (
-                <div className="result-empty">
-                    <img className="result-empty-img" src={resultEmptyUrl} alt="" />
+                <div className={classes.resultEmpty}>
+                    <img className={classes.resultEmptyImg} src={resultEmptyUrl} alt="" />
                     <h2>Results shown here</h2>
                     <p>
                         Complete the form and click “calculate repayments” to see what
@@ -37,12 +37,12 @@ export function MortgageResult({ hasResult, monthlyPayment, totalPayment }: Mort
                     To adjust the results, edit the form and click “calculate repayments” again.
                 </p>
 
-                <div className="result-details">
+                <div className={classes.resultDetails}>
                     <span>Your monthly repayments</span>
-                    <strong className="monthly">{numberFormatter.format(monthlyPayment)}</strong>
-                    <hr className="result-separator" />
+                    <strong className={classes.monthly}>{numberFormatter.format(monthlyPayment)}</strong>
+                    <hr className={classes.resultSeparator} />
                     <span>Total you'll repay over the term</span>
-                    <strong className="total">{numberFormatter.format(totalPayment)}</strong>
+                    <strong className={classes.total}>{numberFormatter.format(totalPayment)}</strong>
                 </div>
             </>)}
         </div>

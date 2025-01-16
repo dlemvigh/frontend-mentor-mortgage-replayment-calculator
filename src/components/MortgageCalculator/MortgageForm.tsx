@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import iconCalculatorUrl from "../../assets/images/icon-calculator.svg";
 import { Button } from "../Form/Button";
 
-import "./MortgageForm.css"
 import { useForm } from "react-hook-form";
 import { 
     Label, 
@@ -14,6 +13,8 @@ import {
     InputAddon,
     InputError 
 } from "../Form/Input";
+
+import classes from "./MortgageForm.module.css"
 
 type FormValues = {
     amount: string
@@ -48,14 +49,14 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
     }, [onClear, reset])
 
     return (
-        <form className="form" onSubmit={onSubmit}>
-            <div className="form-title-bar">
+        <form className={classes.form} onSubmit={onSubmit}>
+            <div className={classes.formTitleBar}>
                 <h1>Mortgage Calculator</h1>
-                <button type="reset" className="reset-btn" onClick={handleClear}>Clear All</button>
+                <button type="reset" className={classes.resetBtn} onClick={handleClear}>Clear All</button>
             </div>
 
-            <div className="form-fields">
-                <Label className="form-field-mortgage-amount">
+            <div className={classes.formFields}>
+                <Label className={classes.formWideOnDesktop}>
                     Mortgage Amount
                     <InputWrapper>
                         <InputAddon>£</InputAddon>
@@ -105,13 +106,12 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
                     {errors.interest && <InputError>{errors.interest.message}</InputError>}
                 </Label>
 
-                <Fieldset>
+                <Fieldset className={classes.formWideOnDesktop}>
                     <Legend>Mortgage Type</Legend>
                     <InputRadio
                         {...register("type", {
                             required: "This field is required"
                         })}
-                        className="form-radio"
                         type="radio"
                         value="repayment"
                     >
@@ -119,7 +119,6 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
                     </InputRadio>
                     <InputRadio
                             {...register("type")}
-                            className="form-radio"
                             type="radio"
                             value="interest-only"
                     >

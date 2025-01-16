@@ -1,6 +1,7 @@
 import { HTMLAttributes, InputHTMLAttributes } from "react";
-import classes from "./input.module.css"
 import { cn } from "../../lib/classnames";
+
+import classes from "./input.module.css"
 
 export function Label({ children, ...props }: HTMLAttributes<HTMLLabelElement>) {
     return (

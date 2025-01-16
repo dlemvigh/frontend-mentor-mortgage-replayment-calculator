@@ -11,6 +11,15 @@
     border-color: var(--color-lime);
 }
 
+
+.form-input {
+    padding: 12.5px 16px;
+    border-style: none;
+    flex: 1 1 0;
+    outline: none;
+    width: 0;
+}
+
 .form-input-addon {
     background-color: var(--color-slate-100);
     color: var(--color-slate-700);
@@ -24,13 +33,6 @@
 }
 .form-input-wrapper:focus-within .form-input-addon {
     background-color: var(--color-lime);
-}
-
-.form-input {
-    padding: 12.5px 16px;
-    border-style: none;
-    flex-grow: 1;
-    outline: none;
 }
 
 .form-fieldset {

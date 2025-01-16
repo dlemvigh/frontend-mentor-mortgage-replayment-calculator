@@ -16,16 +16,9 @@
     gap: 24px;
 }
 
-.form-field-mortgage-amount {
+.form-wide-on-desktop {
     grid-column: span 2;
 }
-
-.form-label {
-    display: flex;
-    flex-direction: column;;
-    gap: 12px;
-}
-
 
 .reset-btn {
     background-color: transparent;
@@ -43,10 +36,7 @@
     .form-fields {
         grid-template-columns: 1fr;
     }
-    .form-field-mortgage-amount {
+    .form-wide-on-desktop {
         grid-column: span 1;
     }
-    .form-fieldset {
-        grid-column: span 1;
-    }   
 }

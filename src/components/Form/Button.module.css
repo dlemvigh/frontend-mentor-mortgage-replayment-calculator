@@ -24,12 +24,10 @@
     background-color: var(--color-lime-hover)
 }
 
-.button-primary {
-    background-color: var(--color-lime);
-    color: var(--color-slate-900);
-}
-
-.button-primary--cta  {
-    background-color: var(--color-lime);
-    color: var(--color-slate-900);
+.button-reset {
+    background-color: transparent;
+    border-style: none;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--color-slate-700);
 }

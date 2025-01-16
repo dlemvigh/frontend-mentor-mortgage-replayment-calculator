@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import iconCalculatorUrl from "../../assets/images/icon-calculator.svg";
-import { Button } from "../Form/Button";
+import { Button, ResetButton } from "../Form/Button";
 
 import { useForm } from "react-hook-form";
 import { 
@@ -52,7 +52,7 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
         <form className={classes.form} onSubmit={onSubmit}>
             <div className={classes.formTitleBar}>
                 <h1>Mortgage Calculator</h1>
-                <button type="reset" className={classes.resetBtn} onClick={handleClear}>Clear All</button>
+                <ResetButton onClick={handleClear}>Clear All</ResetButton>
             </div>
 
             <div className={classes.formFields}>

@@ -14,5 +14,12 @@ export function Button({ iconUrl, children, ...props }: ButtonProps) {
             {children}
         </button>
     )
+}
 
+export function ResetButton({ children, ...props }: HTMLAttributes<HTMLButtonElement>) {
+    return (
+        <button className={classes.buttonReset} {...props}>
+            {children}
+        </button>
+    )
 }

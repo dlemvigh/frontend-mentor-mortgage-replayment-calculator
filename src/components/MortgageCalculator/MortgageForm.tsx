@@ -4,7 +4,16 @@ import { Button } from "../Form/Button";
 
 import "./MortgageForm.css"
 import { useForm } from "react-hook-form";
-import { InputWrapper, Input, InputAddon, InputError } from "../Form/Input";
+import { 
+    Label, 
+    Fieldset, 
+    Legend,
+    InputWrapper,
+    Input,
+    InputRadio,
+    InputAddon,
+    InputError 
+} from "../Form/Input";
 
 type FormValues = {
     amount: string
@@ -46,7 +55,7 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
             </div>
 
             <div className="form-fields">
-                <label className="form-label form-field-mortgage-amount">
+                <Label className="form-field-mortgage-amount">
                     Mortgage Amount
                     <InputWrapper>
                         <InputAddon>£</InputAddon>
@@ -55,15 +64,14 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
                                 required: "This field is required",
                                 min: { value: 0, message: "The amount must be greater than 0" }
                             })}
-                            className="form-input"
                             type="number"
                             aria-invalid={errors.amount ? "true" : "false"}
                         />
                     </InputWrapper>
                     {errors.amount && <InputError>{errors.amount.message}</InputError>}
-                </label>
+                </Label>
 
-                <label className="form-label">
+                <Label>
                     Mortgate Term
                     <InputWrapper>
                         <Input
@@ -72,16 +80,15 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
                                 min: { value: 1, message: "The term must be at least 1 year" },
                                 max: { value: 30, message: "The term must be at most 30 years" }
                             })}
-                            className="form-input"
                             type="number"
                             aria-invalid={errors.years ? "true" : "false"}
                         />
                         <InputAddon>years</InputAddon>
                     </InputWrapper>
                     {errors.years && <InputError>{errors.years.message}</InputError>}
-                </label>
+                </Label>
 
-                <label className="form-label">
+                <Label>
                     Interest Rate
                     <InputWrapper>
                         <Input
@@ -89,7 +96,6 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
                                 required: "This field is required",
                                 min: { value: 0, message: "The interest rate must be greater than 0" },
                             })}
-                            className="form-input"
                             type="number"
                             aria-invalid={errors.interest ? "true" : "false"}
                             step="0.01"
@@ -97,32 +103,30 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
                         <InputAddon>%</InputAddon>
                     </InputWrapper>
                     {errors.interest && <InputError>{errors.interest.message}</InputError>}
-                </label>
+                </Label>
 
-                <fieldset className="form-fieldset">
-                    <legend className="form-legend">Mortgage Type</legend>
-                    <label className="form-radio-label">
-                        <input
-                            {...register("type", {
-                                required: "This field is required"
-                            })}
-                            className="form-radio"
-                            type="radio"
-                            value="repayment"
-                        />
+                <Fieldset>
+                    <Legend>Mortgage Type</Legend>
+                    <InputRadio
+                        {...register("type", {
+                            required: "This field is required"
+                        })}
+                        className="form-radio"
+                        type="radio"
+                        value="repayment"
+                    >
                         Repayment
-                    </label>
-                    <label className="form-radio-label">
-                        <input
+                    </InputRadio>
+                    <InputRadio
                             {...register("type")}
                             className="form-radio"
                             type="radio"
                             value="interest-only"
-                        />
+                    >
                         Interest Only
-                    </label>
-                    {errors.type && <div className="form-error">{errors.type.message}</div>}
-                </fieldset>
+                    </InputRadio>
+                    {errors.type && <InputError>{errors.type.message}</InputError>}
+                </Fieldset>
             </div>
 
             <Button iconUrl={iconCalculatorUrl}>

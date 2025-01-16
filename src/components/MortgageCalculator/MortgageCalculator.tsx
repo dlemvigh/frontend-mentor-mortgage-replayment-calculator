@@ -4,7 +4,7 @@ import { calculatePayment } from "../../lib/mortgage-payment-calculator"
 import { MortgageForm } from "./MortgageForm"
 import { MortgageResult } from "./MortgageResult"
 
-import "./MortgageCalculator.css"
+import classes from "./MortgageCalculator.module.css"
 
 type CalculationState = {
     hasResult: boolean
@@ -28,7 +28,7 @@ export function MortgageCalculator() {
     }, [])
 
     return (
-        <div className="mortgage-calculator">
+        <div className={classes.mortgageCalculator}>
             <MortgageForm onCalculateMortgage={handleCalculateMortgage} onClear={handleClear} />
             <MortgageResult 
                 hasResult={calculation.hasResult} 

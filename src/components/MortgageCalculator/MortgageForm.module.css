@@ -20,15 +20,6 @@
     grid-column: span 2;
 }
 
-.reset-btn {
-    background-color: transparent;
-    border-style: none;
-    text-decoration: underline;
-    cursor: pointer;
-    color: var(--color-slate-700);
-}
-
-
 @media screen and (width < 768px) {
     .form {
         padding: 24px;

@@ -34,7 +34,7 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
         mode: "onBlur"
     })
 
-    const onSubmit = useCallback(handleSubmit((data) => {
+    const onSubmit = handleSubmit((data: FormValues) => {
         console.log(data)
         const principal = Number(data.amount)
         const interestRate = Number(data.interest)
@@ -42,7 +42,8 @@ export function MortgageForm({ onCalculateMortgage, onClear }: MortgageFormProps
         const type = data.type as "repayment" | "interest-only"
 
         onCalculateMortgage(principal, interestRate, term, type)
-    }), [])
+    })
+    
     const handleClear = useCallback(() => {
         reset()
         onClear()

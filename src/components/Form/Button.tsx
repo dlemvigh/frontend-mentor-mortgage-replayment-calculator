@@ -18,7 +18,7 @@ export function Button({ iconUrl, children, ...props }: ButtonProps) {
 
 export function ResetButton({ children, ...props }: HTMLAttributes<HTMLButtonElement>) {
     return (
-        <button className={classes.buttonReset} {...props}>
+        <button type="reset" className={classes.buttonReset} {...props}>
             {children}
         </button>
     )
